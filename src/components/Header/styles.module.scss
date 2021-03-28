@@ -1,0 +1,72 @@
+.headerContainer {
+  height: 5rem;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.headerContent {
+  display: block;
+  max-width: 1120px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+
+  nav {
+    margin-left: 5rem;
+    height: 100%;
+    display: flex;
+
+    a {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0 0.5rem;
+      height: 100%;
+      color: var(--gray-300);
+      align-self: center;
+      cursor: pointer;
+
+      transition: color 0.2s;
+
+      &:not(:first-child) {
+        margin-left: 2rem;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        width: 0;
+        transition: width 0.4s;
+        bottom: 1px;
+        left: 0;
+        background: var(--yellow-500);
+      }
+
+      &:hover {
+        color: var(--white);
+        transition: color 0;
+
+        &:after {
+          width: 100%;
+        }
+      }
+
+      &.linkActive {
+        color: var(--white);
+        font-weight: bold;
+
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  > button {
+    margin-left: auto;
+  }
+}
