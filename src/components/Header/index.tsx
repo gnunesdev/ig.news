@@ -1,7 +1,9 @@
+import Link from "next/link";
+
+import { ActiveLink } from "../ActiveLink";
+
 import { SignInButton } from "../SignInButton";
 import styles from "./styles.module.scss";
-
-import Link from "next/link";
 
 export function Header() {
   return (
@@ -11,8 +13,16 @@ export function Header() {
           <img src="/images/logo.svg" alt="ig.news" />
         </Link>
         <nav>
-          <a className={styles.linkActive}>Home</a>
-          <a>Posts</a>
+          <ActiveLink activeClassName={styles.linkActive} href="/">
+            <a>Home</a>
+          </ActiveLink>
+          <ActiveLink
+            activeClassName={styles.linkActive}
+            href="/posts"
+            prefetch={true}
+          >
+            <a>Posts</a>
+          </ActiveLink>
         </nav>
         <SignInButton />
       </div>
